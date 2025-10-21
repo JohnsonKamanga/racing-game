@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd7vydb1txp6v"]
+
+[ext_resource type="PackedScene" uid="uid://bkyb3po5bk77l" path="res://surface.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://d0n6q0n386hhh" path="res://environment/Models/GLB format/road-straight.glb" id="2_h2yge"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1bvp3"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lquwl"]
+
+[node name="Main" type="Node"]
+
+[node name="Surface" parent="." instance=ExtResource("1_0xm2m")]
+
+[node name="track" type="StaticBody3D" parent="Surface"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38419e-07, -1.24717, 0.0733867)
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Surface/track"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.564048, 0.0178924, 1.32371)
+shape = SubResource("BoxShape3D_1bvp3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Surface/track/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.7, 0.160963, 0.166212, -0.146375)
+mesh = SubResource("PlaneMesh_lquwl")
+
+[node name="road-straight2" parent="Surface/track/CollisionShape3D/MeshInstance3D" instance=ExtResource("2_h2yge")]
+transform = Transform3D(2.2, 0, 0, 0, 2, 0, 0, 0, 2, 0.108025, -0.00969875, -0.00480461)
+
+[node name="track2" type="StaticBody3D" parent="Surface"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19207, -1.24963, 0.0733867)
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Surface/track2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.564048, 0.0178924, 1.32371)
+shape = SubResource("BoxShape3D_1bvp3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Surface/track2/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.7, 0.160963, 0.166212, -0.146375)
+mesh = SubResource("PlaneMesh_lquwl")
+
+[node name="road-straight2" parent="Surface/track2/CollisionShape3D/MeshInstance3D" instance=ExtResource("2_h2yge")]
+transform = Transform3D(2.2, 0, 0, 0, 2, 0, 0, 0, 2, 0.108025, -0.00969875, -0.00480461)
+
+[node name="track2" type="StaticBody3D" parent="Surface/track2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19207, -1.24963, 0.0733867)
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Surface/track2/track2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.564048, 0.0178924, 1.32371)
+shape = SubResource("BoxShape3D_1bvp3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Surface/track2/track2/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.7, 0.160963, 0.166212, -0.146375)
+mesh = SubResource("PlaneMesh_lquwl")
+
+[node name="road-straight2" parent="Surface/track2/track2/CollisionShape3D/MeshInstance3D" instance=ExtResource("2_h2yge")]
+transform = Transform3D(2.2, 0, 0, 0, 2, 0, 0, 0, 2, 0.108025, -0.00969875, -0.00480461)
+
+[node name="track3" type="StaticBody3D" parent="Surface"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36575, -1.26151, 0.0863042)
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Surface/track3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.564048, 0.0178924, 1.32371)
+shape = SubResource("BoxShape3D_1bvp3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Surface/track3/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.7, 0.160963, 0.166212, -0.146375)
+mesh = SubResource("PlaneMesh_lquwl")
+
+[node name="road-straight2" parent="Surface/track3/CollisionShape3D/MeshInstance3D" instance=ExtResource("2_h2yge")]
+transform = Transform3D(2.2, 0, 0, 0, 2, 0, 0, 0, 2, 0.108025, -0.00969875, -0.00480461)
