@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dhtwk5bvfk3rp"
+path="res://.godot/imported/road-square.obj-375e07a6cd1da1333653846381a801ff.mesh"
+
+[deps]
+
+files=["res://.godot/imported/road-square.obj-375e07a6cd1da1333653846381a801ff.mesh"]
+
+source_file="res://assets/Arenas/Area-1/Models/OBJ format/road-square.obj"
+dest_files=["res://.godot/imported/road-square.obj-375e07a6cd1da1333653846381a801ff.mesh", "res://.godot/imported/road-square.obj-375e07a6cd1da1333653846381a801ff.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

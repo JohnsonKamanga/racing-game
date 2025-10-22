@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ddu0m7eblld82"
+path="res://.godot/imported/debris-plate-a.obj-e79abf3d3ae3a7346204508f3f3a5c64.mesh"
+
+[deps]
+
+files=["res://.godot/imported/debris-plate-a.obj-e79abf3d3ae3a7346204508f3f3a5c64.mesh"]
+
+source_file="res://assets/Vehicles/kenny_car_kit/Models/OBJ format/debris-plate-a.obj"
+dest_files=["res://.godot/imported/debris-plate-a.obj-e79abf3d3ae3a7346204508f3f3a5c64.mesh", "res://.godot/imported/debris-plate-a.obj-e79abf3d3ae3a7346204508f3f3a5c64.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

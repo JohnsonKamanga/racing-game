@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cpdahlkl6o62s"
+path="res://.godot/imported/road-end.obj-5138b4319226d559386d0a07f8f4481d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/road-end.obj-5138b4319226d559386d0a07f8f4481d.mesh"]
+
+source_file="res://assets/Arenas/Area-1/Models/OBJ format/road-end.obj"
+dest_files=["res://.godot/imported/road-end.obj-5138b4319226d559386d0a07f8f4481d.mesh", "res://.godot/imported/road-end.obj-5138b4319226d559386d0a07f8f4481d.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

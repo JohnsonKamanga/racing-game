@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cvbuaicknbfg7"
+path="res://.godot/imported/construction-light.obj-644da0c58cb3afd4de77ba4fd973844d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/construction-light.obj-644da0c58cb3afd4de77ba4fd973844d.mesh"]
+
+source_file="res://assets/Arenas/Area-1/Models/OBJ format/construction-light.obj"
+dest_files=["res://.godot/imported/construction-light.obj-644da0c58cb3afd4de77ba4fd973844d.mesh", "res://.godot/imported/construction-light.obj-644da0c58cb3afd4de77ba4fd973844d.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
