@@ -4,7 +4,7 @@ extends CharacterBody3D
 @export var gravity = -20
 @export var wheel_base = 0.6
 @export var steering_limit = 10.0
-@export var engine_power = 6.0
+@export var engine_power = 20.0
 @export var braking = -9.0
 @export var friction = -2.0
 @export var drag = -2.0
@@ -12,9 +12,16 @@ extends CharacterBody3D
 
 var acceleration = Vector3.ZERO
 var steer_angle = 0.0
+var raycast: RayCast3D
+var moving_right = true
+
+func _ready():
+	$HUD/SpeedLabel.text = "0"
+	raycast = $RayCast3D # Make sure this matches the name of your RayCast3D node
+
 
 func apply_friction(delta: float):
-	if velocity.length() < 2 and acceleration.length() == 0:
+	if velocity.length() < 0.2 and acceleration.length() == 0:
 		velocity.x = 0
 		velocity.y = 0
 	
@@ -27,7 +34,7 @@ func calculate_steering(delta: float):
 	var rear_wheel = transform.origin + transform.basis.z * wheel_base / 2.0
 	var front_wheel = transform.origin - transform.basis.z * wheel_base / 2.0
 	rear_wheel += velocity * delta
-	front_wheel += velocity.rotated(transform.basis.y, -steer_angle) * delta
+	front_wheel += velocity.rotated(transform.basis.y, steer_angle * 0.5) * delta
 	var new_heading = rear_wheel.direction_to(front_wheel)
 	
 	var d = new_heading.dot(velocity.normalized())
@@ -44,15 +51,16 @@ func get_input():
 	var turn = Input.get_action_strength("steer_left")
 	turn -= Input.get_action_strength("steer_right")
 	steer_angle = turn * deg_to_rad(steering_limit)
-	$"wheel-front-right".rotation.y = steer_angle * 2
-	$"wheel-front-left".rotation.y = steer_angle * 2
+	#front and back wheels swapped naming - front refers to back and back refers to front
+	$"wheel-back-right".rotation.y = steer_angle * 2
+	$"wheel-back-left".rotation.y = steer_angle * 2
 	acceleration = Vector3.ZERO
 	
 	if Input.is_action_pressed("accelerate"):
-		acceleration = transform.basis.z * engine_power
+		acceleration = -transform.basis.z * engine_power
 	
 	if Input.is_action_pressed("brake"):
-		acceleration = transform.basis.z * braking
+		acceleration = -transform.basis.z * braking
 		
 
 
@@ -63,11 +71,16 @@ func _physics_process(delta: float) -> void:
 		apply_friction(delta)
 		calculate_steering(delta)
 		
+	if not raycast.is_colliding():
+		moving_right = not moving_right
+		# Reverse the velocity or move direction based on your movement logic
+		
 	acceleration.y = gravity
-	var friction_force = velocity * friction * delta
-	var drag_force = velocity * velocity.length() * delta * drag
-	acceleration += drag_force + friction_force
-	
 	velocity += acceleration * delta
-	
+	$HUD/SpeedLabel.text = str(int(velocity.length()))
 	move_and_slide()
+	
+	if moving_right:
+		raycast.position.x = abs(raycast.position.x)
+	else:
+		raycast.position.x = -abs(raycast.position.x)

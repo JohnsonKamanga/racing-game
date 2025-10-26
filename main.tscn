@@ -1,6 +1,5 @@
 [gd_scene load_steps=5 format=3 uid="uid://cd7vydb1txp6v"]
 
-[ext_resource type="PackedScene" uid="uid://bkyb3po5bk77l" path="res://surface.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://ddefwks7f70pc" path="res://src/cars/sedan.tscn" id="4_1bvp3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lquwl"]
@@ -8,27 +7,90 @@ size = Vector3(7.1973877, 1, 5.9556885)
 
 [sub_resource type="BoxMesh" id="BoxMesh_1bvp3"]
 
+[sub_resource type="Curve3D" id="Curve3D_ig7tw"]
+closed = true
+_data = {
+"points": PackedVector3Array(3.0557709, -0.00881958, -18.134346, -3.0557709, 0.00881958, 18.134346, 153.66531, -3.3368597, 69.07541, 0, 0, 0, 0, 0, 0, 103.40999, -4.517487, 97.11034, 0, 0, 0, 0, 0, 0, 64.65399, -4.7765427, 102.06702, 0, 0, 0, 0, 0, 0, 26.964325, -3.617898, 111.2731, 0, 0, 0, 0, 0, 0, -20.34354, -1.8787079, 113.477066, 0, 0, 0, 0, 0, 0, -86.86579, -3.096459, 110.658676, 0, 0, 0, 0, 0, 0, -145.12758, -4.7385864, 102.38135, 18.530182, 0.022918701, 22.388332, -18.530182, -0.022918701, -22.388332, -176.90065, -5.4217653, 83.53455, 0, 0, 0, 0, 0, 0, -162.55537, -3.8299236, 45.47975, -4.2102203, 0.49700928, 0.40220642, 4.2102203, -0.49700928, -0.40220642, -115.39105, -2.2383485, 14.381081, 0, 0, 0, 0, 0, 0, -72.755226, -3.4153566, 5.376439, -12.93956, 1.7749729, 27.568756, 12.93956, -1.7749729, -27.568756, -35.245705, -3.1232872, -20.191223, 18.203705, -1.3815918, 8.901375, -18.203705, 1.3815918, -8.901375, -43.588146, -4.8821507, -73.825806, 30.719917, 0.02456665, 12.303719, -30.719917, -0.02456665, -12.303719, -90.146774, -5.8285065, -87.849884, 0, 0, 0, 0, 0, 0, -138.23308, -3.0392094, -76.592575, 9.778992, 2.5529861, 13.16227, -9.778992, -2.5529861, -13.16227, -186.61667, -4.4108725, -87.56028, -14.263611, 1.8038006, 28.746101, 14.263611, -1.8038006, -28.746101, -205.10052, -4.2318087, -127.08891, 0.119262695, -0.0038452148, 0.32421875, -0.119262695, 0.0038452148, -0.32421875, -165.09857, -5.0596304, -159.81633, 0, 0, 0, 0, 0, 0, -123.79124, -5.6439066, -144.113, 0, 0, 0, 0, 0, 0, -72.362885, -4.502987, -145.55788, 0, 0, 0, 0, 0, 0, -15.275704, -5.3404865, -135.46165, 0, 0, 0, 0, 0, 0, 41.364464, -3.7321777, -132.65155, 0, 0, 0, 0, 0, 0, 91.81025, -4.7660303, -130.16565, 0, 0, 0, 0, 0, 0, 131.7945, -3.6348925, -120.51774, 1.6792755, -2.0495033, -21.41397, -1.6792755, 2.0495033, 21.41397, 151.89296, -3.5149193, -93.2699, 0, 0, 0, 0, 0, 0, 139.58997, -2.9750547, -69.97683, 0, 0, 0, 0, 0, 0, 103.05042, -4.442311, -50.780617, 0, 0, 0, 0, 0, 0, 73.23248, -4.9039183, -47.399734, 13.965267, -0.82789636, -11.601206, -13.965267, 0.82789636, 11.601206, 31.099697, -3.6928005, -34.66883, 0.24317169, -0.6293192, -3.5219612, -0.24317169, 0.6293192, 3.5219612, 35.83886, -5.3133264, 15.082272, 0, 0, 0, 0, 0, 0, 67.69744, -6.1103916, 25.859272, 0, 0, 0, 0, 0, 0, 88.44926, -3.8612695, 36.96644, 0, 0, 0, 0, 0, 0, 121.41991, -3.6276684, 44.144302),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 33
+
 [node name="Main" type="Node"]
 
-[node name="Surface" parent="." instance=ExtResource("1_0xm2m")]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-4.371139e-08, -0.5, 0.8660254, 0, 0.8660254, 0.5, -1, 2.1855694e-08, -3.7855173e-08, 4.6322446, 11.910957, 0.51096964)
+shadow_enabled = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Surface"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5565434, -1.6532092, -2.495483)
+[node name="Sedan" parent="." instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.057861, -4.2902193, -7.445778)
+
+[node name="CameraPivot" type="Marker3D" parent="Sedan"]
+transform = Transform3D(-0.9997159, 0, -0.023838919, 0, 1, 0, 0.023838919, 0, -0.9997159, -13.91091, 3.9665627, 2.3741612)
+
+[node name="Camera" type="Camera3D" parent="Sedan/CameraPivot"]
+transform = Transform3D(-4.371138e-08, -0.34202012, 0.93969244, 0, 0.9396926, 0.34202006, -0.9999998, 1.4950174e-08, -4.107526e-08, -0.50737095, 6.359931, 0.010632992)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 7.6976414, -36.93503, -9.414013)
 shape = SubResource("BoxShape3D_lquwl")
+debug_color = Color(0.6418366, 0.3187066, 0.03421259, 1)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Surface/CollisionShape3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
 transform = Transform3D(9, 0, 0, 0, 1, 0, 0, 0, 7, -0.77184415, 0.10288072, -0.25909543)
 mesh = SubResource("BoxMesh_1bvp3")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-4.371139e-08, -0.5, 0.8660254, 0, 0.8660254, 0.5, -1, 2.1855694e-08, -3.7855173e-08, 8.3805895, 2.7062929, 0.51096964)
-shadow_enabled = true
+[node name="Node3D" type="Node3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7799845, 1.6017332, 0)
 
-[node name="CameraPivot" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.398396, -0.55139875, -4.7042775)
+[node name="Path3D" type="Path3D" parent="StaticBody3D/Node3D"]
+curve = SubResource("Curve3D_ig7tw")
 
-[node name="Camera" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.25127995, -1.1920929e-07, 0.028723717)
+[node name="Road" type="CSGPolygon3D" parent="StaticBody3D/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -4.2831764, -4.3078356, 7.1720085)
+use_collision = true
+polygon = PackedVector2Array(-3.9399385, -0.1784091, -3.8670468, 0.4630208, 8.461748, 0.56495166, 8.497101, -0.046811104)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
 
-[node name="Sedan" parent="." instance=ExtResource("4_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5451694, -1.1048622, -4.169647)
+[node name="OutterWall" type="CSGPolygon3D" parent="StaticBody3D/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1719737, -5.2345114, 7.908636)
+use_collision = true
+polygon = PackedVector2Array(-3.801862, 0.010471582, -3.853653, 4.140705, -3.1567106, 4.097337, -3.048427, -0.021387577)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="InnerWall" type="CSGPolygon3D" parent="StaticBody3D/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.222345, -0.8669872, 7.5034485)
+use_collision = true
+polygon = PackedVector2Array(8.333835, -3.0137434, 7.865985, 0.37638187, 9.623571, 0.19198227, 9.989092, -3.1853323)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 0.5
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
