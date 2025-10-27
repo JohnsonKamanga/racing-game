@@ -34,18 +34,20 @@ shape = SubResource("BoxShape3D_x4qmk")
 
 [node name="HUD" type="CanvasLayer" parent="." index="9"]
 
-[node name="Speed" type="Label" parent="HUD" index="0"]
+[node name="SpeedLabel" type="Label" parent="HUD" index="0"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -125.0
-offset_bottom = 35.0
+offset_left = -144.0
+offset_top = 4.0
+offset_right = -57.0
+offset_bottom = 39.0
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("3_xcmph")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 text = "Speed"
 
-[node name="SpeedLabel" type="Label" parent="HUD" index="1"]
+[node name="Speed" type="Label" parent="HUD" index="1"]
 anchors_preset = -1
 anchor_left = 0.943
 anchor_top = 0.076000005
@@ -57,7 +59,37 @@ offset_right = 14.66394
 offset_bottom = 14.751995
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("3_xcmph")
-theme_override_font_sizes/font_size = 25
-text = "0"
+theme_override_font_sizes/font_size = 20
+text = "0 km/h"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="RaceTimeLabel" type="Label" parent="HUD" index="2"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -139.0
+offset_top = 75.0
+offset_right = -58.0
+offset_bottom = 104.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("3_xcmph")
+theme_override_font_sizes/font_size = 25
+text = "Time"
+
+[node name="RaceTime" type="Label" parent="HUD" index="3"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -134.0
+offset_top = 112.0
+offset_right = -60.0
+offset_bottom = 135.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("3_xcmph")
+theme_override_font_sizes/font_size = 20
+text = "00:00"
+
+[node name="RaceTimer" type="Timer" parent="." index="10"]
+
+[connection signal="timeout" from="RaceTimer" to="." method="_on_race_timer_timeout"]

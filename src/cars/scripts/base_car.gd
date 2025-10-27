@@ -10,13 +10,31 @@ extends CharacterBody3D
 @export var drag = -2.0
 @export var max_speed_reverse = 3.0
 
+
 var acceleration = Vector3.ZERO
 var steer_angle = 0.0
 var raycast: RayCast3D
 var moving_right = true
+var total_time : int = 0
+
+func update_speed(speed: float):
+	$HUD/Speed.text = str(speed) + " km/h"
+
+
+func calculate_time(time_in_seconds: int): 
+	var m = int(time_in_seconds / 60)
+	var s = int(time_in_seconds - m * 60)
+	return {"min": m, "sec": s}
+
+
+func update_timer(time: int):
+	var t = calculate_time(time)
+	$HUD/RaceTime.text = '%02d:%02d' % [t.min, t.sec]
+
 
 func _ready():
-	$HUD/SpeedLabel.text = "0"
+	update_speed(0)
+	$RaceTimer.start()
 	raycast = $RayCast3D # Make sure this matches the name of your RayCast3D node
 
 
@@ -77,10 +95,16 @@ func _physics_process(delta: float) -> void:
 		
 	acceleration.y = gravity
 	velocity += acceleration * delta
-	$HUD/SpeedLabel.text = str(int(velocity.length()))
+	update_speed(int(velocity.length())) 
 	move_and_slide()
 	
 	if moving_right:
 		raycast.position.x = abs(raycast.position.x)
 	else:
 		raycast.position.x = -abs(raycast.position.x)
+
+#this timer implementation was inspired by https://youtu.be/lx-eo3kQPyA?si=eNAZaQdjPtdUxUP0
+func _on_race_timer_timeout() -> void:
+	total_time +=1
+	update_timer(total_time)
+	
