@@ -1,0 +1,103 @@
+[gd_scene load_steps=5 format=3 uid="uid://diwuxpw2cy2n6"]
+
+[ext_resource type="PackedScene" uid="uid://5kooqof50116" path="res://assets/Vehicles/kenny_car_kit/Models/GLB format/suv.glb" id="1_uy4y2"]
+[ext_resource type="FontFile" uid="uid://bsc3181lgqxkv" path="res://assets/UI/Font/Kenney Future.ttf" id="2_aiacp"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_03l02"]
+height = 1.2339897
+radius = 0.29101563
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i5v7g"]
+size = Vector3(1.0654907, 1, 2.5401134)
+
+[node name="suv" instance=ExtResource("1_uy4y2")]
+friction = -4.0
+drag = -8.0
+car_name = "SUV"
+
+[node name="body" parent="." index="0"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.01542902, 0.2, 0.22471875)
+
+[node name="FrontWheelCollionShape3D" type="CollisionShape3D" parent="." index="5"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.03871365, 0.27684736, -0.5296379)
+shape = SubResource("CylinderShape3D_03l02")
+
+[node name="RearWheelCollionShape3D" type="CollisionShape3D" parent="." index="6"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.06870561, 0.28091395, 0.75684714)
+shape = SubResource("CylinderShape3D_03l02")
+
+[node name="BodyCollisionShape3D" type="CollisionShape3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030708104, 0.657927, -0.045517564)
+shape = SubResource("BoxShape3D_i5v7g")
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="8"]
+
+[node name="HUD" type="CanvasLayer" parent="." index="9"]
+
+[node name="SpeedLabel" type="Label" parent="HUD" index="0"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -144.0
+offset_top = 4.0
+offset_right = -57.0
+offset_bottom = 39.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_aiacp")
+theme_override_font_sizes/font_size = 25
+text = "Speed"
+metadata/_edit_use_anchors_ = true
+
+[node name="Speed" type="Label" parent="HUD" index="1"]
+anchors_preset = -1
+anchor_left = 0.943
+anchor_top = 0.076000005
+anchor_right = 0.943
+anchor_bottom = 0.076000005
+offset_left = -15.33606
+offset_top = -14.248005
+offset_right = 14.66394
+offset_bottom = 14.751995
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_aiacp")
+theme_override_font_sizes/font_size = 20
+text = "0 km/h"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RaceTimeLabel" type="Label" parent="HUD" index="2"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -139.0
+offset_top = 75.0
+offset_right = -58.0
+offset_bottom = 104.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_aiacp")
+theme_override_font_sizes/font_size = 25
+text = "Time"
+metadata/_edit_use_anchors_ = true
+
+[node name="RaceTime" type="Label" parent="HUD" index="3"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -134.0
+offset_top = 112.0
+offset_right = -60.0
+offset_bottom = 135.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_aiacp")
+theme_override_font_sizes/font_size = 20
+text = "00:00"
+metadata/_edit_use_anchors_ = true
+
+[node name="RaceTimer" type="Timer" parent="." index="10"]
+
+[node name="CameraPivot" type="Marker3D" parent="." index="11"]
+transform = Transform3D(-0.9997159, 0, -0.023838919, 0, 1, 0, 0.023838919, 0, -0.9997159, -13.91091, 3.9665627, 2.3741612)
+
+[node name="Camera" type="Camera3D" parent="CameraPivot" index="0"]
+transform = Transform3D(-4.0978193e-08, -0.34202015, 0.9396925, 0, 0.9396927, 0.34202018, -0.9999999, 1.4901161e-08, -4.0978193e-08, 1.1126108, 4.1722784, 0.049262524)
