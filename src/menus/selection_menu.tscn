@@ -1,0 +1,137 @@
+[gd_scene load_steps=10 format=3 uid="uid://cmvq0h75bpuj4"]
+
+[ext_resource type="Script" uid="uid://defjrl7o8brud" path="res://src/menus/scripts/selection_menu.gd" id="1_2ahgr"]
+[ext_resource type="Texture2D" uid="uid://c77wtnf5sfxqr" path="res://assets/Vehicles/kenny_car_kit/Previews/suv.png" id="2_ahuqq"]
+[ext_resource type="Texture2D" uid="uid://bcxal16fxnnt5" path="res://assets/Vehicles/kenny_car_kit/Previews/firetruck.png" id="3_85n2a"]
+[ext_resource type="Texture2D" uid="uid://dps5hxh0d051k" path="res://assets/Vehicles/kenny_car_kit/Previews/police.png" id="4_utnc1"]
+[ext_resource type="Texture2D" uid="uid://cty84irwt6dut" path="res://assets/Vehicles/kenny_car_kit/Previews/garbage-truck.png" id="5_ihxqb"]
+[ext_resource type="Texture2D" uid="uid://de3rbcw5revi" path="res://assets/Vehicles/kenny_car_kit/Previews/sedan.png" id="6_e3q26"]
+[ext_resource type="Texture2D" uid="uid://b4116fjwfh4yv" path="res://assets/Vehicles/kenny_car_kit/Previews/race.png" id="7_7epub"]
+[ext_resource type="PackedScene" uid="uid://bjvlnpanerdjr" path="res://src/menus/selected_car_details_menu.tscn" id="8_85n2a"]
+[ext_resource type="PackedScene" uid="uid://d3wtbjclol27p" path="res://src/menus/track_selection_menu.tscn" id="9_eotxs"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_2ahgr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 14.300001
+anchor_top = 6.912
+anchor_right = 14.300001
+anchor_bottom = 6.912
+offset_left = -568.00006
+offset_top = -270.48
+offset_right = 580.99994
+offset_bottom = 370.52
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.39859888, 0.47140843, 1, 1)
+
+[node name="SUVButton" type="TextureButton" parent="ColorRect"]
+layout_mode = 0
+offset_left = 778.0
+offset_top = 61.0
+offset_right = 892.0
+offset_bottom = 152.0
+mouse_default_cursor_shape = 2
+
+[node name="Suv" type="Sprite2D" parent="ColorRect/SUVButton"]
+position = Vector2(58.99999, 48.999996)
+scale = Vector2(2.0312495, 1.7187499)
+texture = ExtResource("2_ahuqq")
+
+[node name="FiretruckButton" type="TextureButton" parent="ColorRect"]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 62.0
+offset_right = 612.0
+offset_bottom = 155.0
+mouse_default_cursor_shape = 2
+
+[node name="Firetruck" type="Sprite2D" parent="ColorRect/FiretruckButton"]
+position = Vector2(52.5, 47.5)
+scale = Vector2(2.109375, 1.640625)
+texture = ExtResource("3_85n2a")
+
+[node name="PoliceCarButton" type="TextureButton" parent="ColorRect"]
+layout_mode = 0
+offset_left = 788.0
+offset_top = 250.0
+offset_right = 895.0
+offset_bottom = 333.0
+mouse_default_cursor_shape = 2
+
+[node name="Police" type="Sprite2D" parent="ColorRect/PoliceCarButton"]
+position = Vector2(53, 35)
+scale = Vector2(2.296875, 1.90625)
+texture = ExtResource("4_utnc1")
+
+[node name="GarageTruckButton" type="TextureButton" parent="ColorRect"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 268.0
+offset_right = 619.0
+offset_bottom = 338.0
+mouse_default_cursor_shape = 2
+
+[node name="GarbageTruck" type="Sprite2D" parent="ColorRect/GarageTruckButton"]
+position = Vector2(55, 26)
+scale = Vector2(2.140625, 1.828125)
+texture = ExtResource("5_ihxqb")
+
+[node name="SedanButton" type="TextureButton" parent="ColorRect"]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 97.0
+offset_right = 297.0
+offset_bottom = 160.0
+mouse_default_cursor_shape = 2
+
+[node name="Sedan" type="Sprite2D" parent="ColorRect/SedanButton"]
+position = Vector2(39, 28)
+scale = Vector2(1.7265625, 1.609375)
+texture = ExtResource("6_e3q26")
+
+[node name="RaceCarButton" type="TextureButton" parent="ColorRect"]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 263.0
+offset_right = 313.0
+offset_bottom = 340.0
+mouse_default_cursor_shape = 2
+
+[node name="Race" type="Sprite2D" parent="ColorRect/RaceCarButton"]
+position = Vector2(56.000004, 46)
+scale = Vector2(1.8593751, 1.59375)
+texture = ExtResource("7_7epub")
+
+[node name="SelectedCarDetails" parent="ColorRect" instance=ExtResource("8_85n2a")]
+
+[node name="TrackSelectionMenu" parent="ColorRect" instance=ExtResource("9_eotxs")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 13.987
+anchor_top = 6.8550005
+anchor_right = 13.987
+anchor_bottom = 6.8550005
+offset_left = -20.480042
+offset_top = -25.200012
+offset_right = 19.519958
+offset_bottom = 14.799988
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="ColorRect/SUVButton" to="." method="_on_suv_button_pressed"]
+[connection signal="pressed" from="ColorRect/FiretruckButton" to="." method="_on_firetruck_button_pressed"]
+[connection signal="pressed" from="ColorRect/PoliceCarButton" to="." method="_on_police_car_button_pressed"]
+[connection signal="pressed" from="ColorRect/GarageTruckButton" to="." method="_on_garage_truck_button_pressed"]
+[connection signal="pressed" from="ColorRect/SedanButton" to="." method="_on_sedan_button_pressed"]
+[connection signal="pressed" from="ColorRect/RaceCarButton" to="." method="_on_race_car_button_pressed"]
+[connection signal="track_selected" from="ColorRect/TrackSelectionMenu" to="." method="_on_track_selection_menu_track_selected"]

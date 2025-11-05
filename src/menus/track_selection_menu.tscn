@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3wtbjclol27p"]
+
+[ext_resource type="Script" uid="uid://chcogdxta3kx8" path="res://src/menus/scripts/track_selection_menu.gd" id="1_3sbnm"]
+[ext_resource type="Texture2D" uid="uid://bd5jw06sifg41" path="res://assets/Arenas/Area-1/Sample.png" id="1_nlhdb"]
+
+[node name="TrackSelectionMenu" type="CanvasLayer"]
+script = ExtResource("1_3sbnm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 1.0
+offset_top = 413.0
+offset_right = 827.0
+offset_bottom = 644.0
+
+[node name="TrackOneButton" type="TextureButton" parent="ColorRect"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 47.0
+offset_right = 241.0
+offset_bottom = 137.0
+mouse_default_cursor_shape = 2
+
+[node name="TrackOneImage" type="Sprite2D" parent="ColorRect/TrackOneButton"]
+position = Vector2(73, 44)
+scale = Vector2(0.15686275, 0.18834959)
+texture = ExtResource("1_nlhdb")
+
+[connection signal="pressed" from="ColorRect/TrackOneButton" to="." method="_on_track_one_button_pressed"]
