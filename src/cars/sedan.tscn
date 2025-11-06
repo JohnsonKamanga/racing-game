@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddefwks7f70pc"]
+[gd_scene load_steps=7 format=3 uid="uid://ddefwks7f70pc"]
 
 [ext_resource type="PackedScene" uid="uid://wahhx1dnacjb" path="res://assets/Vehicles/kenny_car_kit/Models/GLB format/sedan-sports.glb" id="1_x4qmk"]
 [ext_resource type="Script" uid="uid://dw1tuunalro4u" path="res://src/cars/scripts/base_car.gd" id="2_00hmf"]
-[ext_resource type="FontFile" uid="uid://bsc3181lgqxkv" path="res://assets/UI/Font/Kenney Future.ttf" id="3_xcmph"]
+[ext_resource type="PackedScene" uid="uid://2yeyimebbumy" path="res://src/menus/hud.tscn" id="3_xcmph"]
+[ext_resource type="PackedScene" uid="uid://2a6qqu4eovds" path="res://src/player_camera_pivot.tscn" id="4_5c7tn"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_x4qmk"]
 height = 1.2339897
@@ -11,9 +12,10 @@ radius = 0.29101563
 [sub_resource type="BoxShape3D" id="BoxShape3D_x4qmk"]
 size = Vector3(1.0654907, 1, 2.5401134)
 
-[node name="Sedan" instance=ExtResource("1_x4qmk")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+[node name="Sedan" groups=["vehicle"] instance=ExtResource("1_x4qmk")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 script = ExtResource("2_00hmf")
+car_name = "Sedan"
 
 [node name="body" parent="." index="0"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.15, -0.025)
@@ -32,64 +34,11 @@ shape = SubResource("BoxShape3D_x4qmk")
 
 [node name="RayCast3D" type="RayCast3D" parent="." index="8"]
 
-[node name="HUD" type="CanvasLayer" parent="." index="9"]
+[node name="RaceTimer" type="Timer" parent="." index="9"]
 
-[node name="SpeedLabel" type="Label" parent="HUD" index="0"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -144.0
-offset_top = 4.0
-offset_right = -57.0
-offset_bottom = 39.0
-grow_horizontal = 0
-theme_override_fonts/font = ExtResource("3_xcmph")
-theme_override_font_sizes/font_size = 25
-text = "Speed"
+[node name="HUD" parent="." index="10" instance=ExtResource("3_xcmph")]
+visible = false
 
-[node name="Speed" type="Label" parent="HUD" index="1"]
-anchors_preset = -1
-anchor_left = 0.943
-anchor_top = 0.076000005
-anchor_right = 0.943
-anchor_bottom = 0.076000005
-offset_left = -15.33606
-offset_top = -14.248005
-offset_right = 14.66394
-offset_bottom = 14.751995
-grow_horizontal = 0
-theme_override_fonts/font = ExtResource("3_xcmph")
-theme_override_font_sizes/font_size = 20
-text = "0 km/h"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="RaceTimeLabel" type="Label" parent="HUD" index="2"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -139.0
-offset_top = 75.0
-offset_right = -58.0
-offset_bottom = 104.0
-grow_horizontal = 0
-theme_override_fonts/font = ExtResource("3_xcmph")
-theme_override_font_sizes/font_size = 25
-text = "Time"
-
-[node name="RaceTime" type="Label" parent="HUD" index="3"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -134.0
-offset_top = 112.0
-offset_right = -60.0
-offset_bottom = 135.0
-grow_horizontal = 0
-theme_override_fonts/font = ExtResource("3_xcmph")
-theme_override_font_sizes/font_size = 20
-text = "00:00"
-
-[node name="RaceTimer" type="Timer" parent="." index="10"]
+[node name="PlayerCameraPivot" parent="." index="11" instance=ExtResource("4_5c7tn")]
 
 [connection signal="timeout" from="RaceTimer" to="." method="_on_race_timer_timeout"]

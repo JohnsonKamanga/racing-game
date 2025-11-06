@@ -9,6 +9,7 @@ extends CharacterBody3D
 @export var friction = -2.0
 @export var drag = -2.0
 @export var max_speed_reverse = 3.0
+@export var car_name = ""
 
 
 var acceleration = Vector3.ZERO
@@ -16,10 +17,38 @@ var steer_angle = 0.0
 var raycast: RayCast3D
 var moving_right = true
 var total_time : int = 0
+var lap = 0
 
 func update_speed(speed: float):
 	$HUD/Speed.text = str(speed) + " km/h"
 
+func calculate_realistic_top_speed() -> float:
+	"""
+	More accurate top speed calculation considering both drag and friction
+	At top speed: engine_power = drag * v^2 + friction * v
+	Solving quadratic equation: drag*v^2 + friction*v - engine_power = 0
+	"""
+	var a = abs(drag)
+	var b = abs(friction)
+	var c = -engine_power
+	
+	# Quadratic formula: v = (-b + sqrt(b^2 - 4ac)) / 2a
+	var discriminant = b * b - 4 * a * c
+	if discriminant < 0:
+		return 0.0
+	
+	var top_speed = (-b + sqrt(discriminant)) / (2 * a)
+	return top_speed * 3.6  # Convert to km/h (assuming m/s * 3.6)
+
+func get_display_stats(): 
+	var speed = calculate_realistic_top_speed()
+	
+	return {
+		"name": car_name,
+		"speed": round(speed),
+		"acceleration": round(acceleration.length()),
+		"brakes": abs(braking)
+	}
 
 func calculate_time(time_in_seconds: int): 
 	var m = int(time_in_seconds / 60)
@@ -52,7 +81,7 @@ func calculate_steering(delta: float):
 	var rear_wheel = transform.origin + transform.basis.z * wheel_base / 2.0
 	var front_wheel = transform.origin - transform.basis.z * wheel_base / 2.0
 	rear_wheel += velocity * delta
-	front_wheel += velocity.rotated(transform.basis.y, steer_angle * 0.5) * delta
+	front_wheel += velocity.rotated(transform.basis.y.normalized(), steer_angle * 0.3) * delta
 	var new_heading = rear_wheel.direction_to(front_wheel)
 	
 	var d = new_heading.dot(velocity.normalized())

@@ -13,9 +13,9 @@ dest_files=["res://.godot/imported/suv.glb-6af565cc4bd25659692c7aa8760e051d.scn"
 
 [params]
 
-nodes/root_type=""
-nodes/root_name=""
-nodes/root_script=null
+nodes/root_type="CharacterBody3D"
+nodes/root_name="suv"
+nodes/root_script=Resource("uid://dw1tuunalro4u", "res://src/cars/scripts/base_car.gd")
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
