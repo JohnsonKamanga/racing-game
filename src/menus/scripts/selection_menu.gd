@@ -1,6 +1,6 @@
 extends Control
 
-var cars_path = "res://src/cars"
+signal game_ready
 
 func _ready():
 	pass
@@ -51,3 +51,7 @@ func _on_race_car_button_pressed() -> void:
 
 func _on_track_selection_menu_track_selected() -> void:
 	display_car_stats(Global.selected_character_path)
+
+
+func _on_selected_car_details_details_ready() -> void:
+	game_ready.emit()

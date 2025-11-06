@@ -96,3 +96,5 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_7hrl5")
 theme_override_font_sizes/font_size = 20
 text = "Start Game"
+
+[connection signal="pressed" from="ColorRect/StartGameButton" to="." method="_on_start_game_button_pressed"]

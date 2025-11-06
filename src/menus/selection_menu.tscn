@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bjvlnpanerdjr" path="res://src/menus/selected_car_details_menu.tscn" id="8_85n2a"]
 [ext_resource type="PackedScene" uid="uid://d3wtbjclol27p" path="res://src/menus/track_selection_menu.tscn" id="9_eotxs"]
 
-[node name="Control" type="Control"]
+[node name="SelectionMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -134,4 +134,5 @@ grow_vertical = 2
 [connection signal="pressed" from="ColorRect/GarageTruckButton" to="." method="_on_garage_truck_button_pressed"]
 [connection signal="pressed" from="ColorRect/SedanButton" to="." method="_on_sedan_button_pressed"]
 [connection signal="pressed" from="ColorRect/RaceCarButton" to="." method="_on_race_car_button_pressed"]
+[connection signal="details_ready" from="ColorRect/SelectedCarDetails" to="." method="_on_selected_car_details_details_ready"]
 [connection signal="track_selected" from="ColorRect/TrackSelectionMenu" to="." method="_on_track_selection_menu_track_selected"]
