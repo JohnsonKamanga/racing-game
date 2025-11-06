@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://2a6qqu4eovds"]
+
+[node name="PlayerCameraPivot" type="Marker3D"]
+transform = Transform3D(-0.9997159, 0, -0.023838919, 0, 1, 0, 0.023838919, 0, -0.9997159, -13.91091, 3.9665627, 2.3741612)
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(-4.371138e-08, -0.34202012, 0.93969244, 0, 0.9396926, 0.34202006, -0.9999998, 1.4950174e-08, -4.107526e-08, -0.50737095, 6.359931, 0.010632992)
