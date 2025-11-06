@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwhgdom5qismr"]
+
+[ext_resource type="Script" uid="uid://c6s843v4ptthu" path="res://src/main_game_scene.gd" id="1_34f3m"]
+
+[node name="MainGameScene" type="Node"]
+script = ExtResource("1_34f3m")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-4.371139e-08, -0.5, 0.8660254, 0, 0.8660254, 0.5, -1, 2.1855694e-08, -3.7855173e-08, 4.6322446, 11.910957, 0.51096964)
+shadow_enabled = true
