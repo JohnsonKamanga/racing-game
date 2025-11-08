@@ -1,4 +1,4 @@
-extends CharacterBody3D
+class_name BaseCar extends CharacterBody3D
 
 #most of this code was obtained and inspired from https://kidscancode.org/godot_recipes/3.x/3d/kinematic_car/car_base/index.html
 @export var gravity = -20
@@ -18,6 +18,18 @@ var raycast: RayCast3D
 var moving_right = true
 var total_time : int = 0
 var lap = 0
+var finished: bool = false
+var distance_traveled: float = 0.0 # Total distance traveled by the vehicle (will be helpful later)
+var _last_player_position: Vector3 = Vector3.ZERO #tmp
+
+func update_distance_traveled():
+	# find length to vector between last and current position
+	var distance = position.distance_to(_last_player_position)
+	_last_player_position = position # update last position
+	distance_traveled += distance
+
+func get_distance_traveled():
+	return distance_traveled
 
 func update_speed(speed: float):
 	$HUD/Speed.text = str(speed) + " km/h"
@@ -51,7 +63,7 @@ func get_display_stats():
 	}
 
 func calculate_time(time_in_seconds: int): 
-	var m = int(time_in_seconds / 60)
+	var m = int(time_in_seconds / 60.0)
 	var s = int(time_in_seconds - m * 60)
 	return {"min": m, "sec": s}
 
@@ -65,6 +77,7 @@ func _ready():
 	update_speed(0)
 	$RaceTimer.start()
 	raycast = $RayCast3D # Make sure this matches the name of your RayCast3D node
+	$HUD/Lap.text =  "1"
 
 
 func apply_friction(delta: float):
@@ -117,6 +130,7 @@ func _physics_process(delta: float) -> void:
 		get_input()
 		apply_friction(delta)
 		calculate_steering(delta)
+		update_distance_traveled()
 		
 	if not raycast.is_colliding():
 		moving_right = not moving_right
@@ -137,3 +151,8 @@ func _on_race_timer_timeout() -> void:
 	total_time +=1
 	update_timer(total_time)
 	
+
+func next_lap():
+	if not finished:
+		lap += 1
+		print("debug: lap " + str(lap))

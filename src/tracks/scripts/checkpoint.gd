@@ -1,8 +1,9 @@
-extends Area3D
+class_name Checkpoint extends Area3D
 
 @export var checkpoint_id: int
 
 signal checkpoint_passed
+
 var forward_direction : Vector3
 
 

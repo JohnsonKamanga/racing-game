@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dn6yjxqfkpq4g"]
+[gd_scene load_steps=9 format=3 uid="uid://dn6yjxqfkpq4g"]
 
 [ext_resource type="Script" uid="uid://bqplu35btjrsq" path="res://src/tracks/scripts/base_track.gd" id="1_vaps8"]
 [ext_resource type="PackedScene" uid="uid://xv2gs873r7hi" path="res://src/tracks/checkpoint.tscn" id="1_wuc2v"]
 [ext_resource type="PackedScene" uid="uid://c6ng0ujt6qu5g" path="res://assets/Arenas/Area-1/Models/GLB format/tile-slant.glb" id="1_xf3lk"]
+[ext_resource type="PackedScene" uid="uid://d03mllvk2fgan" path="res://assets/Arenas/Area-1/Models/GLB format/construction-cone.glb" id="2_ydprp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ec08y"]
 size = Vector3(7.1973877, 1, 5.9556885)
@@ -22,6 +23,9 @@ size = Vector3(1.1069336, 0.5493164, 9.205109)
 
 [node name="TrackOne" type="StaticBody3D"]
 script = ExtResource("1_vaps8")
+
+[node name="construction-cone2" parent="." instance=ExtResource("2_ydprp")]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -25.413496, -4.0724144, -26.371475)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 7.6976414, -36.93503, -9.414013)
@@ -105,21 +109,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.311335, -3.9953513, -26.7
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.17102, -3.9953518, -26.774225)
 
 [node name="StartPosition4" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -172.4859, -4.865841, -150.57138)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.839855, -4.126282, -26.70783)
 
-[node name="FinishLine" parent="." instance=ExtResource("1_wuc2v")]
+[node name="Checkpoints" type="Node3D" parent="."]
+
+[node name="FinishLine" parent="Checkpoints" groups=["checkpoints"] instance=ExtResource("1_wuc2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.08617, -4.0673485, -23.227217)
 
-[node name="Checkpoint" parent="." instance=ExtResource("1_wuc2v")]
+[node name="Checkpoint" parent="Checkpoints" groups=["checkpoints"] instance=ExtResource("1_wuc2v")]
 transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.4969112e-08, -77.11352, -3.908689, -130.74765)
 checkpoint_id = 1
 
-[node name="Checkpoint2" parent="." instance=ExtResource("1_wuc2v")]
+[node name="Checkpoint2" parent="Checkpoints" groups=["checkpoints"] instance=ExtResource("1_wuc2v")]
 transform = Transform3D(-0.42973813, 0.015006785, -0.74478185, 0.030013567, 0.85947615, 0, 0.74432814, -0.02599251, -0.43000007, 132.57564, -4.3272204, -102.87025)
 checkpoint_id = 2
 
-[node name="Checkpoint3" parent="." instance=ExtResource("1_wuc2v")]
+[node name="Checkpoint3" parent="Checkpoints" groups=["checkpoints"] instance=ExtResource("1_wuc2v")]
 transform = Transform3D(0.09755386, 0.00113772, 0.9952296, 0.009794752, 0.99994975, -0.0021032118, -0.995182, 0.009953207, 0.0975378, -7.6993856, -2.2239892, 112.472916)
 checkpoint_id = 3
 
-[connection signal="checkpoint_passed" from="FinishLine" to="." method="_on_finish_line_checkpoint_passed"]
+[node name="construction-cone3" parent="." instance=ExtResource("2_ydprp")]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -35.870743, -4.0724154, -26.145527)
