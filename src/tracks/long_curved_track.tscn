@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqtxqqydea0u2"]
+
+[ext_resource type="PackedScene" uid="uid://dd8k53xw6d08e" path="res://src/tracks/straight_track.tscn" id="1_e7ju5"]
+[ext_resource type="PackedScene" uid="uid://doa6q5kmtf70n" path="res://src/tracks/curved_track.tscn" id="2_o54ul"]
+
+[node name="LongCurvedTrack" type="Node3D"]
+
+[node name="StraightTrack" parent="." instance=ExtResource("1_e7ju5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.026956934, 0, -0.005962682)
+
+[node name="CurvedTrack" parent="." instance=ExtResource("2_o54ul")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4422282, 2.3841858e-08, 0.4928061)
+
+[node name="StraightTrack2" parent="." instance=ExtResource("1_e7ju5")]
+transform = Transform3D(-4.3711392e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711392e-08, 1.9441117, 1.4901161e-08, 1.98644)

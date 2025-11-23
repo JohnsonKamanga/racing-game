@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd8k53xw6d08e"]
+
+[ext_resource type="PackedScene" uid="uid://d0n6q0n386hhh" path="res://assets/Arenas/Area-1/Models/GLB format/road-straight.glb" id="1_bilyj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hiqmw"]
+size = Vector3(1, 0.0499115, 1)
+
+[node name="StraightTrack" type="Node3D"]
+
+[node name="road-straight2" parent="." instance=ExtResource("1_bilyj")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="road-straight2"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="road-straight2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0013198853, 0)
+shape = SubResource("BoxShape3D_hiqmw")

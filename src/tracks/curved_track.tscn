@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://doa6q5kmtf70n"]
+
+[ext_resource type="PackedScene" uid="uid://dyc8nruxcl25p" path="res://assets/Arenas/Area-1/Models/GLB format/road-curve.glb" id="1_nfadl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bccoh"]
+size = Vector3(2.0562744, 0.17333984, 2.0620728)
+
+[node name="CurvedTrack" type="Node3D"]
+
+[node name="road-curve2" parent="." instance=ExtResource("1_nfadl")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="road-curve2"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="road-curve2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0119018555, -0.12954652, 0.073286414)
+shape = SubResource("BoxShape3D_bccoh")

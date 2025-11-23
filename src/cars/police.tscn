@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://v6mbavu6ry4q"]
+
+[ext_resource type="PackedScene" uid="uid://3gggibd71jk1" path="res://assets/Vehicles/kenny_car_kit/Models/GLB format/police.glb" id="1_xlouv"]
+[ext_resource type="PackedScene" uid="uid://2a6qqu4eovds" path="res://src/player_camera_pivot.tscn" id="2_ufjbm"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vymwa"]
+height = 1.2339897
+radius = 0.29101563
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wjmfk"]
+size = Vector3(1.3162384, 1, 3.0489688)
+
+[node name="Police" instance=ExtResource("1_xlouv")]
+car_name = "Police"
+max_acceleration = 15
+max_speed = 25
+
+[node name="wheel-front-left" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39914638, 0.3, 0.8741684)
+
+[node name="body" parent="." index="1"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.2, -0.025)
+
+[node name="wheel-back-left" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41096073, 0.3, -0.82159144)
+
+[node name="wheel-back-right" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37269145, 0.3, -0.8325186)
+
+[node name="wheel-front-right" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.370956, 0.3, 0.819309)
+
+[node name="FrontWheelCollionShape3D" type="CollisionShape3D" parent="." index="5"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.034882978, 0.27684736, -0.8538515)
+shape = SubResource("CylinderShape3D_vymwa")
+
+[node name="RearWheelCollionShape3D" type="CollisionShape3D" parent="." index="6"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.08848209, 0.28091395, 0.9060823)
+shape = SubResource("CylinderShape3D_vymwa")
+
+[node name="BodyCollisionShape3D" type="CollisionShape3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018218786, 0.657927, -0.030310512)
+shape = SubResource("BoxShape3D_wjmfk")
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="8"]
+
+[node name="RaceTimer" type="Timer" parent="." index="9"]
+
+[node name="PlayerCameraPivot" parent="." index="10" groups=["vehicle"] instance=ExtResource("2_ufjbm")]

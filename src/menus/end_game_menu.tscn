@@ -1,0 +1,232 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbsnq0fqi24po"]
+
+[ext_resource type="Script" uid="uid://dbup0v3dktrco" path="res://src/menus/scripts/end_game_menu.gd" id="1_gwym7"]
+[ext_resource type="FontFile" uid="uid://bsc3181lgqxkv" path="res://assets/UI/Font/Kenney Future.ttf" id="1_rabl2"]
+
+[node name="EndGameMenu" type="CanvasLayer"]
+script = ExtResource("1_gwym7")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 14.762001
+anchor_top = 4.75
+anchor_right = 14.762001
+anchor_bottom = 4.75
+offset_left = -181.48004
+offset_right = 181.51996
+offset_bottom = 270.0
+color = Color(0.4, 0.47058824, 1, 0.9490196)
+
+[node name="RestartButton" type="Button" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23600002
+anchor_top = 0.75600004
+anchor_right = 0.23600002
+anchor_bottom = 0.75600004
+offset_left = -65.66801
+offset_top = 9.87999
+offset_right = 65.33199
+offset_bottom = 41.87999
+theme_override_fonts/font = ExtResource("1_rabl2")
+text = "Restart"
+
+[node name="MainMenuButton" type="Button" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.753
+anchor_top = 0.79300004
+anchor_right = 0.753
+anchor_bottom = 0.79300004
+offset_left = -65.33902
+offset_top = -0.11001587
+offset_right = 65.66098
+offset_bottom = 31.889984
+theme_override_fonts/font = ExtResource("1_rabl2")
+text = "Main Menu"
+
+[node name="ColorRect" type="ColorRect" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.503
+anchor_top = 0.1
+anchor_right = 0.503
+anchor_bottom = 0.1
+offset_left = -121.589005
+offset_right = 121.410995
+offset_bottom = 170.0
+color = Color(0.827451, 0.003921569, 0.02745098, 0.7882353)
+
+[node name="PlayerSection" type="Control" parent="Control/ColorRect/ColorRect"]
+anchors_preset = 0
+offset_left = 51.0
+offset_top = 3.0
+offset_right = 192.0
+offset_bottom = 143.0
+
+[node name="FirstPlaceLabel" type="Label" parent="Control/ColorRect/ColorRect/PlayerSection"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.36600003
+anchor_top = 0.24100001
+anchor_right = 0.36600003
+anchor_bottom = 0.24100001
+offset_left = -42.972
+offset_top = 1.2709923
+offset_right = 70.994
+offset_bottom = 24.270985
+theme_override_fonts/font = ExtResource("1_rabl2")
+text = "1."
+
+[node name="SecondPlaceLabel" type="Label" parent="Control/ColorRect/ColorRect/PlayerSection"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.34600002
+anchor_top = 0.37600002
+anchor_right = 0.34600002
+anchor_bottom = 0.37600002
+offset_left = -43.13202
+offset_top = 8.45599
+offset_right = 72.86798
+offset_bottom = 31.45599
+theme_override_fonts/font = ExtResource("1_rabl2")
+text = "2."
+
+[node name="ThirdPlaceLabel" type="Label" parent="Control/ColorRect/ColorRect/PlayerSection"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.374
+anchor_top = 0.61200005
+anchor_right = 0.374
+anchor_bottom = 0.61200005
+offset_left = -45.108017
+offset_top = 4.571991
+offset_right = 71.89198
+offset_bottom = 27.571991
+theme_override_fonts/font = ExtResource("1_rabl2")
+text = "3."
+
+[node name="FourthPlaceLabel" type="Label" parent="Control/ColorRect/ColorRect/PlayerSection"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.354
+anchor_top = 0.81200004
+anchor_right = 0.354
+anchor_bottom = 0.81200004
+offset_left = -41.268005
+offset_top = 1.7720032
+offset_right = 70.731995
+offset_bottom = 24.772003
+theme_override_fonts/font = ExtResource("1_rabl2")
+text = "4."
+
+[node name="PlayersLabel" type="Label" parent="Control/ColorRect/ColorRect/PlayerSection"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.29000002
+anchor_right = 0.29000002
+offset_left = -21.889992
+offset_top = 8.0
+offset_right = 64.400024
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("1_rabl2")
+text = "Player"
+horizontal_alignment = 1
+
+[node name="TimeSection" type="Control" parent="Control/ColorRect/ColorRect"]
+visible = false
+anchors_preset = 0
+offset_left = 145.0
+offset_top = 5.0
+offset_right = 240.0
+offset_bottom = 165.0
+
+[node name="TimeLabel" type="Label" parent="Control/ColorRect/ColorRect/TimeSection"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.79
+anchor_top = 0.053000003
+anchor_right = 0.83100003
+anchor_bottom = 0.053000003
+offset_left = -52.04998
+offset_top = -1.4800014
+offset_right = 0.055023193
+offset_bottom = 21.52
+theme_override_fonts/font = ExtResource("1_rabl2")
+text = "Time"
+
+[node name="FirstPlaceTimeLabel" type="Label" parent="Control/ColorRect/ColorRect/TimeSection"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.36600003
+anchor_top = 0.24100001
+anchor_right = 0.36600003
+anchor_bottom = 0.24100001
+offset_left = -26.769974
+offset_top = 1.2709923
+offset_right = 58.230026
+offset_bottom = 24.270985
+theme_override_fonts/font = ExtResource("1_rabl2")
+
+[node name="SecondPlaceTimeLabel" type="Label" parent="Control/ColorRect/ColorRect/TimeSection"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.55300003
+anchor_top = 0.437
+anchor_right = 0.55300003
+anchor_bottom = 0.437
+offset_left = -42.534973
+offset_top = 0.08000183
+offset_right = 42.465027
+offset_bottom = 23.079994
+theme_override_fonts/font = ExtResource("1_rabl2")
+
+[node name="ThirdPlaceTimeLabel" type="Label" parent="Control/ColorRect/ColorRect/TimeSection"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51100004
+anchor_top = 0.656
+anchor_right = 0.51100004
+anchor_bottom = 0.656
+offset_left = -42.54497
+offset_top = 0.039993286
+offset_right = 42.45503
+offset_bottom = 23.039978
+theme_override_fonts/font = ExtResource("1_rabl2")
+
+[node name="FourthPlaceTimeLabel" type="Label" parent="Control/ColorRect/ColorRect/TimeSection"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.84400004
+anchor_right = 0.5
+anchor_bottom = 0.84400004
+offset_left = -43.49997
+offset_top = -0.040008545
+offset_right = 41.50003
+offset_bottom = 22.959991
+theme_override_fonts/font = ExtResource("1_rabl2")
+
+[node name="RaceTimeLabel" type="Label" parent="Control/ColorRect/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.43400002
+anchor_top = 0.81200004
+anchor_right = 0.43400002
+anchor_bottom = 0.81200004
+offset_left = -70.462006
+offset_top = 3.9599915
+offset_right = 88.537994
+offset_bottom = 26.959976
+theme_override_fonts/font = ExtResource("1_rabl2")
+text = "Race TIme: "
+
+[connection signal="pressed" from="Control/ColorRect/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Control/ColorRect/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

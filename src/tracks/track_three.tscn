@@ -1,0 +1,175 @@
+[gd_scene load_steps=20 format=3 uid="uid://fyocy24npdp"]
+
+[ext_resource type="Script" uid="uid://bqplu35btjrsq" path="res://src/tracks/scripts/base_track.gd" id="1_cja7e"]
+[ext_resource type="PackedScene" uid="uid://btt58onsyq4k7" path="res://src/tracks/8_straight_track.tscn" id="2_tbg07"]
+[ext_resource type="PackedScene" uid="uid://doa6q5kmtf70n" path="res://src/tracks/curved_track.tscn" id="3_6gxbb"]
+[ext_resource type="PackedScene" uid="uid://dqtxqqydea0u2" path="res://src/tracks/long_curved_track.tscn" id="4_clmvu"]
+[ext_resource type="PackedScene" uid="uid://cvxo6ifnpfd0j" path="res://src/tracks/road_bend_square.tscn" id="5_aenfu"]
+[ext_resource type="PackedScene" uid="uid://hwcxw8akkcli" path="res://src/tracks/road_bend_curved.tscn" id="6_bhj6r"]
+[ext_resource type="PackedScene" uid="uid://dd8k53xw6d08e" path="res://src/tracks/straight_track.tscn" id="7_8cv61"]
+[ext_resource type="PackedScene" uid="uid://d1tsj3f16xf6s" path="res://assets/Arenas/kenney_city-kit-industrial_1.0/Models/GLB format/building-c.glb" id="8_3e371"]
+[ext_resource type="PackedScene" uid="uid://xv2gs873r7hi" path="res://src/tracks/checkpoint.tscn" id="8_42lob"]
+[ext_resource type="PackedScene" uid="uid://dawc2bf81xcp7" path="res://assets/Arenas/kenney_city-kit-industrial_1.0/Models/GLB format/building-d.glb" id="9_kevwt"]
+[ext_resource type="PackedScene" uid="uid://c0jyxgxw71qne" path="res://assets/Arenas/kenney_city-kit-industrial_1.0/Models/GLB format/building-l.glb" id="10_keqb4"]
+[ext_resource type="PackedScene" uid="uid://b71oqs3je6wob" path="res://assets/Arenas/kenney_city-kit-industrial_1.0/Models/GLB format/building-o.glb" id="11_jrdql"]
+[ext_resource type="PackedScene" uid="uid://bpqbvneovemh1" path="res://assets/Arenas/kenney_city-kit-industrial_1.0/Models/GLB format/building-r.glb" id="12_phkja"]
+[ext_resource type="PackedScene" uid="uid://cw8jvka1osdu4" path="res://assets/Arenas/kenney_city-kit-industrial_1.0/Models/GLB format/chimney-basic.glb" id="13_72g7b"]
+[ext_resource type="PackedScene" uid="uid://clk051udib5gx" path="res://assets/Arenas/kenney_city-kit-industrial_1.0/Models/GLB format/building-f.glb" id="14_yqdc2"]
+[ext_resource type="PackedScene" uid="uid://e6v7w0sgg3yt" path="res://assets/Arenas/kenney_city-kit-industrial_1.0/Models/GLB format/chimney-medium.glb" id="15_nsf1x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_akssp"]
+size = Vector3(9.384338, 1, 7.111084)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3hli6"]
+
+[sub_resource type="Curve3D" id="Curve3D_5fipg"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 44.33777, 0.706934, -37.448685, 0, 0, 0, 0, 0, 0, 36.358444, 0.5911069, -38.430393, 0, 0, 0, 0, 0, 0, 29.439684, 0.58852327, -41.034058, 0, 0, 0, 0, 0, 0, 26.183218, 0.7280755, -45.79828, 0, 0, 0, 0, 0, 0, 24.916773, 0.72788334, -52.141922, 0, 0, 0, 0, 0, 0, 24.517023, 0.72835636, -58.35723, 0, 0, 0, 0, 0, 0, 24.168676, 0.7288294, -64.25318, 0, 0, 0, 0, 0, 0, 24.643888, 0.7297325, -68.425095, 0, 0, 0, 0, 0, 0, 23.520475, 0.72930336, -72.01206, 0, 0, 0, 0, 0, 0, 19.635475, 0.7263851, -73.07951, 0, 0, 0, 0, 0, 0, 13.532875, 0.8202696, -73.011444, 0, 0, 0, 0, 0, 0, 8.552664, 0.9034605, -72.79892, 0, 0, 0, 0, 0, 0, 5.5602894, 1.0116081, -71.28247, 0, 0, 0, 0, 0, 0, 5.1139603, 0.9343748, -66.27734, 0, 0, 0, 0, 0, 0, 5.11034, 0.9171457, -60.367195, 0, 0, 0, 0, 0, 0, 7.7791185, 0.6782813, -53.256977, 0, 0, 0, 0, 0, 0, 7.300066, 0.5759878, -49.498127, 0, 0, 0, 0, 0, 0, 4.7751255, 0.78679323, -47.729225, 0, 0, 0, 0, 0, 0, -1.7071309, 0.7457762, -48.307224, 0, 0, 0, 0, 0, 0, -10.807537, 1.2090492, -49.465958, 0, 0, 0, 0, 0, 0, -19.888119, 1.2075567, -49.70585, 0, 0, 0, 0, 0, 0, -26.410347, 1.2065945, -49.738846, 0, 0, 0, 0, 0, 0, -33.988525, 1.2040939, -50.07726, 0, 0, 0, 0, 0, 0, -40.398384, 1.2027454, -49.325706, 0, 0, 0, 0, 0, 0, -46.289467, 1.1985092, -48.528572, 0, 0, 0, 0, 0, 0, -51.79409, 1.2044287, -45.795666, 0, 0, 0, 0, 0, 0, -55.487, 1.2172012, -42.190765, 0, 0, 0, 0, 0, 0, -57.68902, 1.2186852, -37.600956, 0, 0, 0, 0, 0, 0, -58.429916, 1.2219057, -31.390076, 0, 0, 0, 0, 0, 0, -58.594162, 1.2230787, -25.507988, 0, 0, 0, 0, 0, 0, -58.062172, 1.2247124, -19.950579, 0, 0, 0, 0, 0, 0, -55.5533, 1.2275972, -15.581838, 0, 0, 0, 0, 0, 0, -51.23677, 1.2196608, -11.546587, 0, 0, 0, 0, 0, 0, -44.853912, 1.2635803, -9.495195, 0, 0, 0, 0, 0, 0, -38.196976, 0.7476587, -9.845842, 0, 0, 0, 0, 0, 0, -35.394707, 0.51926804, -12.373493, 0, 0, 0, 0, 0, 0, -29.98558, 0.90917015, -10.071867, 0, 0, 0, 0, 0, 0, -24.997215, 1.0407591, -7.2292757, 0, 0, 0, 0, 0, 0, -20.626425, 0.9913068, -0.93299675, 0, 0, 0, 0, 0, 0, -19.759571, 1.1295538, 5.9079304, 0, 0, 0, 0, 0, 0, -20.253284, 0.64127356, 12.20809, 0, 0, 0, 0, 0, 0, -20.20041, 0.73362064, 21.68213, 0, 0, 0, 0, 0, 0, -20.55755, 1.3827704, 32.65132, 0, 0, 0, 0, 0, 0, -20.755735, 1.918333, 45.44387, 0, 0, 0, 0, 0, 0, -20.426218, 1.4152708, 56.13064, 0, 0, 0, 0, 0, 0, -16.628996, 1.3811903, 62.00694, 0, 0, 0, 0, 0, 0, -10.169172, 0.60706353, 66.31542, 0, 0, 0, 0, 0, 0, 3.1290388, 0.7075897, 67.81302, 0, 0, 0, 0, 0, 0, 17.54888, 0.77099323, 67.77797, 0, 0, 0, 0, 0, 0, 37.64068, 0.70167065, 68.0119, 0, 0, 0, 0, 0, 0, 54.490707, 0.7066326, 66.81163, 0, 0, 0, 0, 0, 0, 56.444183, 1.0473468, 55.23979, 0, 0, 0, 0, 0, 0, 59.509995, 0.8892269, 42.964634, 0, 0, 0, 0, 0, 0, 66.751854, 0.8974066, 40.320824, 0, 0, 0, 0, 0, 0, 75.81026, 0.9080224, 38.457653, 0, 0, 0, 0, 0, 0, 83.136246, 0.7216747, 38.905205, 0, 0, 0, 0, 0, 0, 84.65821, 1.3130364, 32.103355, 0, 0, 0, 0, 0, 0, 84.33044, 1.3606148, 29.298498, 0, 0, 0, 0, 0, 0, 83.989914, 0.7714225, 25.074877, 0, 0, 0, 0, 0, 0, 81.34173, 0.77491724, 12.346314, 0, 0, 0, 0, 0, 0, 76.48825, 0.7548065, 8.130416, 0, 0, 0, 0, 0, 0, 66.83264, 0.72666645, 8.495542, 0, 0, 0, 0, 0, 0, 57.421455, 0.6992388, 8.851424, 0, 0, 0, 0, 0, 0, 55.891716, 0.8061235, 2.9880505, 0, 0, 0, 0, 0, 0, 55.600243, 0.5248351, -2.4937725, 0, 0, 0, 0, 0, 0, 55.209023, 0.54637694, -8.88322, 0, 0, 0, 0, 0, 0, 55.1455, 0.71708655, -15.463086, 0, 0, 0, 0, 0, 0, 55.338585, 0.7994702, -21.14448, 0, 0, 0, 0, 0, 0, 55.300835, 0.7403345, -26.17701, 0, 0, 0, 0, 0, 0, 55.41813, 0.9563751, -32.54916, 0, 0, 0, 0, 0, 0, 53.866486, 0.7492254, -36.163597, 0, 0, 0, 0, 0, 0, 48.771263, 0.8178849, -36.908344),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 72
+
+[node name="TrackThree" type="StaticBody3D"]
+script = ExtResource("1_cja7e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 0.011796951, 0, -0.28960824)
+shape = SubResource("BoxShape3D_akssp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+transform = Transform3D(8.999999, 0, 0, 0, 1, 0, 0, 0, 6.999999, 0.016757868, -0.014184475, 0.082776636)
+mesh = SubResource("BoxMesh_3hli6")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.465658, 0, -7.968769)
+
+[node name="LongCurvedTrack" parent="Node3D" instance=ExtResource("4_clmvu")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, -38.922882, 0.5166707, -10.565105)
+
+[node name="CurvedTrack2" parent="Node3D" instance=ExtResource("3_6gxbb")]
+transform = Transform3D(-10, 0, -8.742278e-07, 0, 1, 0, 8.742278e-07, 0, -10, -54.14174, 0.61142755, -15.470716)
+
+[node name="8StraightTrack2" parent="Node3D" instance=ExtResource("2_tbg07")]
+transform = Transform3D(-2.1855695e-07, 0, 10, 0, 1, 0, -5, 0, -4.371139e-07, 54.784004, 0.49040198, 0.18129349)
+
+[node name="RoadBendSquare" parent="Node3D" instance=ExtResource("5_aenfu")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 54.853737, 0.5068723, -37.16468)
+
+[node name="LongCurvedTrack3" parent="Node3D" instance=ExtResource("4_clmvu")]
+transform = Transform3D(-4.371139e-07, 0, 10, 0, 1, 0, -10, 0, -4.371139e-07, -59.101074, 0.5550404, -29.476154)
+
+[node name="8StraightTrack3" parent="Node3D" instance=ExtResource("2_tbg07")]
+transform = Transform3D(5.1, 0, 0, 0, 1, 0, 0, 0, 10, -31.856306, 0.5858587, -49.083363)
+
+[node name="LongCurvedTrack4" parent="Node3D" instance=ExtResource("4_clmvu")]
+transform = Transform3D(-10, 0, -8.742278e-07, 0, 1, 0, 8.742278e-07, 0, -10, 44.58944, 0.50580096, -37.202835)
+
+[node name="RoadBendSquare2" parent="Node3D" instance=ExtResource("5_aenfu")]
+transform = Transform3D(-4.371139e-07, 0, -10, 0, 1, 0, 10, 0, -4.371139e-07, 5.2789984, 0.5014063, -48.87565)
+
+[node name="RoadBendCurved" parent="Node3D" instance=ExtResource("6_bhj6r")]
+transform = Transform3D(-4.371139e-07, 0, 10, 0, 1, 0, -10, 0, -4.371139e-07, 5.2997484, 0.50072443, -73.42474)
+
+[node name="RoadBendCurved2" parent="Node3D" instance=ExtResource("6_bhj6r")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 25.113127, 0.48651433, -73.18714)
+
+[node name="StraightTrack" parent="Node3D" instance=ExtResource("7_8cv61")]
+transform = Transform3D(-6.556708e-07, 0, 10, 0, 1, 0, -15, 0, -4.371139e-07, 5.2994823, 0.49912715, -61.194206)
+
+[node name="StraightTrack2" parent="Node3D" instance=ExtResource("7_8cv61")]
+transform = Transform3D(-2.8849516e-07, 0, 10, 0, 1, 0, -6.6, 0, -4.371139e-07, 25.138952, 0.47697216, -64.94713)
+
+[node name="StraightTrack3" parent="Node3D" instance=ExtResource("7_8cv61")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 15.10173, 0.48620677, -73.3936)
+
+[node name="AIPath" type="Path3D" parent="Node3D"]
+curve = SubResource("Curve3D_5fipg")
+
+[node name="LongCurvedTrack2" parent="Node3D" instance=ExtResource("4_clmvu")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 64.44817, 0.66348076, 7.7330227)
+
+[node name="RoadBendCurved3" parent="Node3D" instance=ExtResource("6_bhj6r")]
+transform = Transform3D(-10, 0, -8.742278e-07, 0, 1, 0, 8.742278e-07, 0, -10, 54.709915, 0.48651433, 7.73929)
+
+[node name="RoadBendSquare3" parent="Node3D" instance=ExtResource("5_aenfu")]
+transform = Transform3D(-4.371139e-07, 0, -10, 0, 1, 0, 10, 0, -4.371139e-07, 83.986115, 0.57260025, 37.624084)
+
+[node name="LongCurvedTrack5" parent="Node3D" instance=ExtResource("4_clmvu")]
+transform = Transform3D(-4.371139e-07, 0, 10, 0, 1, 0, -10, 0, -4.371139e-07, 55.53743, 0.53937125, 57.630066)
+
+[node name="RoadBendSquare4" parent="Node3D" instance=ExtResource("5_aenfu")]
+transform = Transform3D(-4.371139e-07, 0, -10, 0, 1, 0, 10, 0, -4.371139e-07, 55.45623, 0.57260215, 67.7472)
+
+[node name="LongCurvedTrack6" parent="Node3D" instance=ExtResource("4_clmvu")]
+transform = Transform3D(-10, 0, -8.742278e-07, 0, 1, 0, 8.742278e-07, 0, -10, -0.40023994, 0.50716853, 67.560135)
+
+[node name="8StraightTrack4" parent="Node3D" instance=ExtResource("2_tbg07")]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 10, 8.265408, 0.4904039, 67.68761)
+
+[node name="8StraightTrack5" parent="Node3D" instance=ExtResource("2_tbg07")]
+transform = Transform3D(-1.7921668e-07, 0, 10, 0, 1, 0, -4.1, 0, -4.371139e-07, -19.735556, 0.4904039, 40.78622)
+
+[node name="Path3D" type="Path3D" parent="Node3D"]
+curve = SubResource("Curve3D_5fipg")
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="building-c2" parent="Visuals" instance=ExtResource("8_3e371")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 7.063549, 0, 9.389103)
+
+[node name="building-d2" parent="Visuals" instance=ExtResource("9_kevwt")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -54.60599, 9.536743e-07, -34.79622)
+
+[node name="building-l2" parent="Visuals" instance=ExtResource("10_keqb4")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 5.9082527, 0.6400299, 77.76321)
+
+[node name="building-o2" parent="Visuals" instance=ExtResource("11_jrdql")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -12.355791, 0, 35.602676)
+
+[node name="building-r2" parent="Visuals" instance=ExtResource("12_phkja")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 80.244644, 0, -32.471962)
+
+[node name="chimney-basic2" parent="Visuals" instance=ExtResource("13_72g7b")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -7.1370335, 0, -21.759212)
+
+[node name="building-f2" parent="Visuals" instance=ExtResource("14_yqdc2")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -30.292921, 0, -37.3499)
+
+[node name="chimney-medium2" parent="Visuals" instance=ExtResource("15_nsf1x")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 2.0903816, 0, -24.704762)
+
+[node name="building-l3" parent="Visuals" instance=ExtResource("10_keqb4")]
+transform = Transform3D(1.1924881e-07, 0, -10, 0, 10, 0, 10, 0, 1.1924881e-07, -95.812096, 0.38861322, -31.78455)
+
+[node name="building-r3" parent="Visuals" instance=ExtResource("12_phkja")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -67.0168, -4.7683716e-07, 9.450127)
+
+[node name="building-r4" parent="Visuals" instance=ExtResource("12_phkja")]
+transform = Transform3D(-10, 0, -8.742278e-07, 0, 10, 0, 8.742278e-07, 0, -10, 36.93996, 0, -63.996986)
+
+[node name="StartPosition" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.878975, 0.60209095, -28.465425)
+
+[node name="StartPosition2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.620384, 0.60209095, -28.224955)
+
+[node name="StartPosition3" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.702084, 0.835328, -28.192875)
+
+[node name="StartPosition4" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.26179, 0.5278073, -28.591022)
+
+[node name="Checkpoints" type="Node3D" parent="."]
+
+[node name="FinishLine" parent="Checkpoints" instance=ExtResource("8_42lob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.454098, -2.3841858e-07, -20.500639)
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("8_42lob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.578316, 0.652051, 47.976505)
+
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("8_42lob")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -43.04386, 0.6520479, 8.336913)
+
+[node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("8_42lob")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -19.902763, 0.6663017, -62.949707)

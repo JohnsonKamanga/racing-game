@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpmji8oq1rkqp"]
+
+[ext_resource type="Script" uid="uid://dptru7hmh4q3" path="res://src/menus/scripts/screen_controls.gd" id="1_45gg4"]
+[ext_resource type="Texture2D" uid="uid://qsyoe5qy3nql" path="res://assets/UI/mobile_controls/Sprites/Style D/Default/button_bean.png" id="3_suryh"]
+[ext_resource type="Texture2D" uid="uid://brb6a5a04mfbg" path="res://assets/UI/mobile_controls/Sprites/Style D/Default/button_hexagon_wide.png" id="4_45gg4"]
+[ext_resource type="PackedScene" uid="uid://dcmndyo0vg2s4" path="res://src/menus/scripts/joystick.tscn" id="4_gd27k"]
+[ext_resource type="Script" uid="uid://cw81yhktsiv3n" path="res://src/menus/scripts/joystick.gd" id="4_kgklv"]
+[ext_resource type="FontFile" uid="uid://bsc3181lgqxkv" path="res://assets/UI/Font/Kenney Future.ttf" id="5_suryh"]
+
+[node name="ScreenControls" type="CanvasLayer"]
+script = ExtResource("1_45gg4")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 17.0
+offset_top = 346.0
+offset_right = 1172.0
+offset_bottom = 666.0
+
+[node name="Joystick" parent="Control" instance=ExtResource("4_gd27k")]
+position = Vector2(108, 158)
+script = ExtResource("4_kgklv")
+
+[node name="AccelerationButton" type="TouchScreenButton" parent="Control"]
+position = Vector2(1037, 161)
+
+[node name="AccelerationPedal" type="Sprite2D" parent="Control/AccelerationButton"]
+position = Vector2(-0.5000019, 5.0000057)
+scale = Vector2(2.4531252, 1.7619042)
+texture = ExtResource("3_suryh")
+
+[node name="AccelerationLabel" type="Label" parent="Control/AccelerationButton"]
+anchors_preset = -1
+anchor_left = 0.53400004
+anchor_top = 0.37100002
+anchor_right = 0.53400004
+anchor_bottom = 0.37100002
+offset_left = -26.0
+offset_top = -2.0
+offset_right = 23.0
+offset_bottom = 21.0
+theme_override_fonts/font = ExtResource("5_suryh")
+text = "Gas"
+
+[node name="BreakButton" type="TouchScreenButton" parent="Control"]
+position = Vector2(795, 160)
+
+[node name="BreakPedal" type="Sprite2D" parent="Control/BreakButton"]
+position = Vector2(1.4999907, 2.9999895)
+scale = Vector2(1.0234376, 0.99999917)
+texture = ExtResource("4_45gg4")
+
+[node name="BreakLabel" type="Label" parent="Control/BreakButton"]
+anchors_preset = -1
+offset_left = -31.00003
+offset_top = -1.0
+offset_right = 35.99997
+offset_bottom = 17.0
+theme_override_fonts/font = ExtResource("5_suryh")
+text = "Break"
+
+[connection signal="pressed" from="Control/AccelerationButton" to="." method="_on_acceleration_button_button_down"]
+[connection signal="released" from="Control/AccelerationButton" to="." method="_on_acceleration_button_button_up"]
+[connection signal="pressed" from="Control/BreakButton" to="." method="_on_break_button_button_down"]
+[connection signal="released" from="Control/BreakButton" to="." method="_on_break_button_button_up"]

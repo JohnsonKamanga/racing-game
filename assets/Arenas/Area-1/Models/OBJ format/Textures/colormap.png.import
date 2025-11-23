@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://k0e2jrbv4int"
 path.s3tc="res://.godot/imported/colormap.png-dd45089528d38eb126c80aa97db200dc.s3tc.ctex"
+path.etc2="res://.godot/imported/colormap.png-dd45089528d38eb126c80aa97db200dc.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Arenas/Area-1/Models/OBJ format/Textures/colormap.png"
-dest_files=["res://.godot/imported/colormap.png-dd45089528d38eb126c80aa97db200dc.s3tc.ctex"]
+dest_files=["res://.godot/imported/colormap.png-dd45089528d38eb126c80aa97db200dc.s3tc.ctex", "res://.godot/imported/colormap.png-dd45089528d38eb126c80aa97db200dc.etc2.ctex"]
 
 [params]
 

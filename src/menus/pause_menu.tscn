@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://wnu5xmgtllac"]
+
+[ext_resource type="Script" uid="uid://cehm8645ht054" path="res://src/menus/scripts/pause_menu.gd" id="1_i70bi"]
+[ext_resource type="FontFile" uid="uid://bsc3181lgqxkv" path="res://assets/UI/Font/Kenney Future.ttf" id="1_pido5"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_i70bi")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 14.762001
+anchor_top = 4.75
+anchor_right = 14.762001
+anchor_bottom = 4.75
+offset_left = -181.48004
+offset_right = 181.51996
+offset_bottom = 270.0
+color = Color(0.4, 0.47058824, 1, 0.9490196)
+
+[node name="ResumeButton" type="Button" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48600003
+anchor_top = 0.333
+anchor_right = 0.48600003
+anchor_bottom = 0.333
+offset_left = -65.418015
+offset_top = 0.08999634
+offset_right = 65.581985
+offset_bottom = 32.089996
+theme_override_fonts/font = ExtResource("1_pido5")
+text = "Resume"
+
+[node name="RestartButton" type="Button" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.483
+anchor_top = 0.73300004
+anchor_right = 0.483
+anchor_bottom = 0.73300004
+offset_left = -62.32901
+offset_top = -48.910004
+offset_right = 68.67099
+offset_bottom = -16.910004
+theme_override_fonts/font = ExtResource("1_pido5")
+text = "Restart"
+
+[node name="MainMenuButton" type="Button" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48600003
+anchor_top = 0.333
+anchor_right = 0.48600003
+anchor_bottom = 0.333
+offset_left = -64.418015
+offset_top = 113.09
+offset_right = 66.581985
+offset_bottom = 145.09
+theme_override_fonts/font = ExtResource("1_pido5")
+text = "Main Menu"
+
+[connection signal="pressed" from="Control/ColorRect/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Control/ColorRect/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Control/ColorRect/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

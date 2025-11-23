@@ -1,11 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://cd7vydb1txp6v"]
+[gd_scene load_steps=3 format=3 uid="uid://gcnw45xml0go"]
 
-[ext_resource type="Script" uid="uid://5sj1pce8itkx" path="res://main.gd" id="1_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://cmvq0h75bpuj4" path="res://src/menus/selection_menu.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://dh4lfrjpiocti" path="res://main.gd" id="1_1bvp3"]
+[ext_resource type="FontFile" uid="uid://bsc3181lgqxkv" path="res://assets/UI/Font/Kenney Future.ttf" id="2_0xm2m"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="CanvasLayer"]
 script = ExtResource("1_1bvp3")
 
-[node name="SelectionMenu" parent="." instance=ExtResource("2_0xm2m")]
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.52000004
+anchor_top = 0.134
+anchor_right = 0.52000004
+anchor_bottom = 0.134
+offset_left = -591.04004
+offset_top = -79.832
+offset_right = 548.95996
+offset_bottom = 580.16797
+color = Color(0.06666667, 0.18039216, 1, 1)
 
-[connection signal="game_ready" from="SelectionMenu" to="." method="_on_selection_menu_game_ready"]
+[node name="StartButton" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48800004
+anchor_top = 0.157
+anchor_right = 0.48800004
+anchor_bottom = 0.157
+offset_left = -148.80801
+offset_top = 21.473
+offset_right = 149.19199
+offset_bottom = 128.47299
+theme_override_fonts/font = ExtResource("2_0xm2m")
+text = "Start"
+
+[node name="ExitButton" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48800004
+anchor_top = 0.157
+anchor_right = 0.48800004
+anchor_bottom = 0.157
+offset_left = -152.80801
+offset_top = 184.47299
+offset_right = 145.19199
+offset_bottom = 291.473
+theme_override_fonts/font = ExtResource("2_0xm2m")
+text = "Exit"
+
+[connection signal="pressed" from="ColorRect/StartButton" to="." method="_on_start_button_pressed"]

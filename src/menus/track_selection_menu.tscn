@@ -3,21 +3,29 @@
 [ext_resource type="Script" uid="uid://chcogdxta3kx8" path="res://src/menus/scripts/track_selection_menu.gd" id="1_3sbnm"]
 [ext_resource type="Texture2D" uid="uid://bd5jw06sifg41" path="res://assets/Arenas/Area-1/Sample.png" id="1_nlhdb"]
 
-[node name="TrackSelectionMenu" type="CanvasLayer"]
+[node name="TrackSelectionMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_3sbnm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 413.0
 offset_right = 827.0
 offset_bottom = 644.0
 
 [node name="TrackOneButton" type="TextureButton" parent="ColorRect"]
-layout_mode = 0
-offset_left = 97.0
-offset_top = 47.0
-offset_right = 241.0
-offset_bottom = 137.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.20500001
+anchor_top = 0.20300001
+anchor_right = 0.20500001
+anchor_bottom = 0.20300001
+offset_left = -72.33002
+offset_top = 0.10699844
+offset_right = 71.66998
+offset_bottom = 90.106995
 mouse_default_cursor_shape = 2
 
 [node name="TrackOneImage" type="Sprite2D" parent="ColorRect/TrackOneButton"]
@@ -25,4 +33,23 @@ position = Vector2(73, 44)
 scale = Vector2(0.15686275, 0.18834959)
 texture = ExtResource("1_nlhdb")
 
+[node name="TrackTwoButton" type="TextureButton" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.633
+anchor_top = 0.19000001
+anchor_right = 0.633
+anchor_bottom = 0.19000001
+offset_left = -71.85803
+offset_top = 0.109996796
+offset_right = 72.14197
+offset_bottom = 90.11
+mouse_default_cursor_shape = 2
+
+[node name="TrackOneImage" type="Sprite2D" parent="ColorRect/TrackTwoButton"]
+position = Vector2(74, 44)
+scale = Vector2(0.15686275, 0.18834959)
+texture = ExtResource("1_nlhdb")
+
 [connection signal="pressed" from="ColorRect/TrackOneButton" to="." method="_on_track_one_button_pressed"]
+[connection signal="pressed" from="ColorRect/TrackTwoButton" to="." method="_on_track_two_button_pressed"]

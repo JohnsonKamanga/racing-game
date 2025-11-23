@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://71ffe78bvj87"
 path.s3tc="res://.godot/imported/colormap.png-83f9d332e3f223addf61c4ce626faffb.s3tc.ctex"
+path.etc2="res://.godot/imported/colormap.png-83f9d332e3f223addf61c4ce626faffb.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Vehicles/kenny_car_kit/Models/OBJ format/Textures/colormap.png"
-dest_files=["res://.godot/imported/colormap.png-83f9d332e3f223addf61c4ce626faffb.s3tc.ctex"]
+dest_files=["res://.godot/imported/colormap.png-83f9d332e3f223addf61c4ce626faffb.s3tc.ctex", "res://.godot/imported/colormap.png-83f9d332e3f223addf61c4ce626faffb.etc2.ctex"]
 
 [params]
 

@@ -3,10 +3,13 @@
 [ext_resource type="Script" uid="uid://dh7220av2lihw" path="res://src/menus/scripts/selected_car_details_menu.gd" id="1_ircyt"]
 [ext_resource type="FontFile" uid="uid://bsc3181lgqxkv" path="res://assets/UI/Font/Kenney Future.ttf" id="2_7hrl5"]
 
-[node name="SelectedCarDetails" type="CanvasLayer"]
+[node name="SelectedCarDetails" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_ircyt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 839.0
 offset_top = 410.0
 offset_right = 1155.0
@@ -14,69 +17,101 @@ offset_bottom = 650.0
 color = Color(0.828081, 0.0020458938, 0.028353056, 1)
 
 [node name="Title" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 72.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.476
+anchor_right = 0.476
+offset_left = -78.416
 offset_top = 9.0
-offset_right = 229.0
+offset_right = 78.584
 offset_bottom = 32.0
 theme_override_fonts/font = ExtResource("2_7hrl5")
 theme_override_font_sizes/font_size = 20
 text = "Chosen Car"
 
 [node name="CarNameLabel" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 18.0
-offset_top = 71.0
-offset_right = 81.0
-offset_bottom = 94.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.157
+anchor_top = 0.296
+anchor_right = 0.157
+anchor_bottom = 0.296
+offset_left = -31.612003
+offset_top = -0.040000916
+offset_right = 31.387997
+offset_bottom = 22.96
 theme_override_fonts/font = ExtResource("2_7hrl5")
 theme_override_font_sizes/font_size = 16
 text = "Name:"
 
 [node name="CarName" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 164.0
-offset_top = 64.0
-offset_right = 275.0
-offset_bottom = 87.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.69500005
+anchor_top = 0.26700002
+anchor_right = 0.69500005
+anchor_bottom = 0.26700002
+offset_left = -55.62001
+offset_top = -0.08000183
+offset_right = 55.37999
+offset_bottom = 22.919998
 theme_override_fonts/font = ExtResource("2_7hrl5")
 theme_override_font_sizes/font_size = 16
 
 [node name="MaxSpeedLabel" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 108.0
-offset_right = 137.0
-offset_bottom = 131.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.24200001
+anchor_top = 0.45000002
+anchor_right = 0.24200001
+anchor_bottom = 0.45000002
+offset_left = -60.472008
+offset_right = 60.527992
+offset_bottom = 22.999992
 theme_override_fonts/font = ExtResource("2_7hrl5")
 theme_override_font_sizes/font_size = 16
 text = "Max Speed:"
 
 [node name="MaxSpeed" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 163.0
-offset_top = 107.0
-offset_right = 283.0
-offset_bottom = 129.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.70600003
+anchor_top = 0.446
+anchor_right = 0.70600003
+anchor_bottom = 0.446
+offset_left = -60.09601
+offset_top = -0.040000916
+offset_right = 59.90399
+offset_bottom = 21.96
 theme_override_fonts/font = ExtResource("2_7hrl5")
 theme_override_font_sizes/font_size = 16
 
 [node name="AccelerationLabel" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 18.0
-offset_top = 146.0
-offset_right = 76.0
-offset_bottom = 169.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.307
+anchor_top = 0.60800004
+anchor_right = 0.307
+anchor_bottom = 0.60800004
+offset_left = -79.012
+offset_top = 0.07998657
+offset_right = -21.012001
+offset_bottom = 23.079987
 theme_override_fonts/font = ExtResource("2_7hrl5")
 theme_override_font_sizes/font_size = 16
 text = "acceleration:"
 
 [node name="Acceleration" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 205.0
-offset_top = 145.0
-offset_right = 259.0
-offset_bottom = 168.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.734
+anchor_top = 0.60400003
+anchor_right = 0.734
+anchor_bottom = 0.60400003
+offset_left = -26.944016
+offset_top = 0.039993286
+offset_right = 27.055984
+offset_bottom = 23.039993
 theme_override_fonts/font = ExtResource("2_7hrl5")
 
 [node name="StartGameButton" type="Button" parent="ColorRect"]

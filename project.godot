@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Racing Game"
+run/main_scene="uid://gcnw45xml0go"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
@@ -62,3 +63,4 @@ brake={
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

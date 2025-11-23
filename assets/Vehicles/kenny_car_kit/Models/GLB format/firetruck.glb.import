@@ -13,9 +13,9 @@ dest_files=["res://.godot/imported/firetruck.glb-ac19bad5fd9eb1289aa5397c598c252
 
 [params]
 
-nodes/root_type=""
-nodes/root_name=""
-nodes/root_script=null
+nodes/root_type="CharacterBody3D"
+nodes/root_name="FireTruck"
+nodes/root_script=Resource("uid://dw1tuunalro4u", "res://src/cars/scripts/base_car.gd")
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

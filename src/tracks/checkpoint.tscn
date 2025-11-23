@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_fgkw7"]
 size = Vector3(11.709595, 7.044983, 1.9875488)
 
-[node name="Checkpoint" type="Area3D"]
+[node name="Checkpoint" type="Area3D" groups=["checkpoints"]]
 script = ExtResource("1_qoodf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

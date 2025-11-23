@@ -13,9 +13,9 @@ dest_files=["res://.godot/imported/police.glb-8961701fd568e155bf7576924114236b.s
 
 [params]
 
-nodes/root_type=""
-nodes/root_name=""
-nodes/root_script=null
+nodes/root_type="CharacterBody3D"
+nodes/root_name="Police"
+nodes/root_script=Resource("uid://dw1tuunalro4u", "res://src/cars/scripts/base_car.gd")
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

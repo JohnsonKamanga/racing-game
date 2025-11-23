@@ -29,15 +29,18 @@ func _on_suv_button_pressed() -> void:
 	display_car_stats(Global.selected_character_path)
 
 func _on_firetruck_button_pressed() -> void:
-	pass # Replace with function body.
+	Global.selected_character_path = "res://src/cars/fire_truck.tscn"
+	display_car_stats(Global.selected_character_path)
 
 
 func _on_police_car_button_pressed() -> void:
-	pass # Replace with function body.
+	Global.selected_character_path = "res://src/cars/police.tscn"
+	display_car_stats(Global.selected_character_path)
 
 
 func _on_garage_truck_button_pressed() -> void:
-	pass # Replace with function body.
+	Global.selected_character_path = "res://src/cars/garage_truck.tscn"
+	display_car_stats(Global.selected_character_path)
 
 
 func _on_sedan_button_pressed() -> void:
@@ -46,7 +49,8 @@ func _on_sedan_button_pressed() -> void:
 
 
 func _on_race_car_button_pressed() -> void:
-	pass # Replace with function body.
+	Global.selected_character_path = "res://src/cars/race.tscn"
+	display_car_stats(Global.selected_character_path)
 
 
 func _on_track_selection_menu_track_selected() -> void:

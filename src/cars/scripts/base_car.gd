@@ -10,7 +10,10 @@ class_name BaseCar extends CharacterBody3D
 @export var drag = -2.0
 @export var max_speed_reverse = 3.0
 @export var car_name = ""
+@export var max_acceleration = 10
+@export var max_speed = 15
 
+signal pause_game
 
 var acceleration = Vector3.ZERO
 var steer_angle = 0.0
@@ -21,6 +24,9 @@ var lap = 0
 var finished: bool = false
 var distance_traveled: float = 0.0 # Total distance traveled by the vehicle (will be helpful later)
 var _last_player_position: Vector3 = Vector3.ZERO #tmp
+var HUD: CanvasLayer #HUD to be dynamically set
+var car_position: int = 0 #player's race positon 
+var checkpoints_passed = 0
 
 func update_distance_traveled():
 	# find length to vector between last and current position
@@ -31,34 +37,29 @@ func update_distance_traveled():
 func get_distance_traveled():
 	return distance_traveled
 
-func update_speed(speed: float):
-	$HUD/Speed.text = str(speed) + " km/h"
+func set_hud(c: CanvasLayer):
+	HUD = c
+	HUD.pause_game.connect(_on_pause_game)
+	add_child(HUD)
 
-func calculate_realistic_top_speed() -> float:
-	"""
-	More accurate top speed calculation considering both drag and friction
-	At top speed: engine_power = drag * v^2 + friction * v
-	Solving quadratic equation: drag*v^2 + friction*v - engine_power = 0
-	"""
-	var a = abs(drag)
-	var b = abs(friction)
-	var c = -engine_power
+func update_speed(speed: float):
 	
-	# Quadratic formula: v = (-b + sqrt(b^2 - 4ac)) / 2a
-	var discriminant = b * b - 4 * a * c
-	if discriminant < 0:
-		return 0.0
+	if HUD != null:
+		var _speed_val = HUD.get_node("Speed")
+		_speed_val.text = str(speed) + " km/h"
 	
-	var top_speed = (-b + sqrt(discriminant)) / (2 * a)
-	return top_speed * 3.6  # Convert to km/h (assuming m/s * 3.6)
+func update_acceleration(a: float):
+	if HUD != null:
+		var acceleration_val = HUD.get_node("Acceleration")
+		acceleration_val.text = str(int(a)) + " km/h^2"
+
 
 func get_display_stats(): 
-	var speed = calculate_realistic_top_speed()
 	
 	return {
 		"name": car_name,
-		"speed": round(speed),
-		"acceleration": round(acceleration.length()),
+		"speed": max_speed,
+		"acceleration": round(max_acceleration),
 		"brakes": abs(braking)
 	}
 
@@ -70,14 +71,21 @@ func calculate_time(time_in_seconds: int):
 
 func update_timer(time: int):
 	var t = calculate_time(time)
-	$HUD/RaceTime.text = '%02d:%02d' % [t.min, t.sec]
+	
+	if HUD != null :
+		var time_val = HUD.get_node("RaceTime")
+		time_val.text = '%02d:%02d' % [t.min, t.sec]
 
 
 func _ready():
 	update_speed(0)
-	$RaceTimer.start()
+	var timer: Timer = $RaceTimer
+	timer.start()
+	if not timer.is_connected("timeout", Callable(self, "_on_race_timer_timeout")):
+		timer.timeout.connect(_on_race_timer_timeout)
 	raycast = $RayCast3D # Make sure this matches the name of your RayCast3D node
-	$HUD/Lap.text =  "1"
+	if HUD != null:
+		HUD.get_node("Lap").text =  "1"
 
 
 func apply_friction(delta: float):
@@ -88,6 +96,8 @@ func apply_friction(delta: float):
 	var friction_force = velocity * friction * delta
 	var drag_force = velocity * velocity.length() * delta * drag
 	acceleration += drag_force + friction_force
+	acceleration = max_acceleration * acceleration.normalized()
+	update_acceleration(acceleration.length())
 
 
 func calculate_steering(delta: float):
@@ -107,52 +117,25 @@ func calculate_steering(delta: float):
 	look_at(transform.origin + new_heading, transform.basis.y)
 
 
-func get_input():
-	var turn = Input.get_action_strength("steer_left")
-	turn -= Input.get_action_strength("steer_right")
-	steer_angle = turn * deg_to_rad(steering_limit)
-	#front and back wheels swapped naming - front refers to back and back refers to front
-	$"wheel-back-right".rotation.y = steer_angle * 2
-	$"wheel-back-left".rotation.y = steer_angle * 2
-	acceleration = Vector3.ZERO
-	
-	if Input.is_action_pressed("accelerate"):
-		acceleration = -transform.basis.z * engine_power
-	
-	if Input.is_action_pressed("brake"):
-		acceleration = -transform.basis.z * braking
-		
-
-
-func _physics_process(delta: float) -> void:
-	
-	if is_on_floor():
-		get_input()
-		apply_friction(delta)
-		calculate_steering(delta)
-		update_distance_traveled()
-		
-	if not raycast.is_colliding():
-		moving_right = not moving_right
-		# Reverse the velocity or move direction based on your movement logic
-		
-	acceleration.y = gravity
-	velocity += acceleration * delta
-	update_speed(int(velocity.length())) 
-	move_and_slide()
-	
-	if moving_right:
-		raycast.position.x = abs(raycast.position.x)
-	else:
-		raycast.position.x = -abs(raycast.position.x)
-
 #this timer implementation was inspired by https://youtu.be/lx-eo3kQPyA?si=eNAZaQdjPtdUxUP0
 func _on_race_timer_timeout() -> void:
-	total_time +=1
-	update_timer(total_time)
+	if Global.game_state == Global.Game_States.RUNNING :
+		total_time +=1
+		update_timer(total_time)
 	
 
 func next_lap():
 	if not finished:
 		lap += 1
 		print("debug: lap " + str(lap))
+
+func update_position(p: int):
+	if HUD != null :
+		var position_node = HUD.get_node("Position")
+		position_node.text = str(p)
+
+func set_car_position(p: int):
+	car_position = p
+
+func _on_pause_game():
+	pause_game.emit()
